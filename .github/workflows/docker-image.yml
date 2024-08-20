@@ -49,7 +49,7 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_HUB_USERNAME }}/ncaa-football-discord-bot:latest,
             ${{ secrets.DOCKER_HUB_USERNAME }}/ncaa-football-discord-bot:${{ env.DATE_TAG }},
-            ghcr.io/${{ github.repository }}:latest,
-            ghcr.io/${{ github.repository }}:{ env.DATE_TAG }}
+            ghcr.io/${{ env.REPO_NAME }}:latest,
+            ghcr.io/${{ env.REPO_NAME }}:{ env.DATE_TAG }}
           build-args: |
             STAGE=prod
