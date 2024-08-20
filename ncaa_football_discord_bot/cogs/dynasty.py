@@ -46,6 +46,9 @@ class DynastySetupCog(commands.Cog):
 
         guild = ctx.guild
 
+        # Add crown emojis to the category name
+        formatted_category_name = f"👑{category_name}👑"
+
         # Create the role with the same name as the category
         role_name = category_name
         role = await guild.create_role(name=role_name)
@@ -58,7 +61,7 @@ class DynastySetupCog(commands.Cog):
         }
 
         # Create the category
-        category = await guild.create_category(name=category_name, overwrites=overwrites)
+        category = await guild.create_category(name=formatted_category_name, overwrites=overwrites)
         await ctx.send(f"Created category: {category.name}")
 
         # Determine the prefix for channel names
@@ -117,7 +120,7 @@ class DynastySetupCog(commands.Cog):
             self.save_invite_data()
 
             await ctx.send(f"Created invite link: {invite.url}")
-            await ctx.send(f"Category '{category_name}' with channels has been set up with restricted access to the role '{role_name}'.")
+            await ctx.respond(f"Category '{formatted_category_name}' with channels has been set up with restricted access to the role '{role_name}'.")
         except KeyError:
             await ctx.send("Failed to create an invite for the GENERAL channel. Make sure it was created successfully.")
 
