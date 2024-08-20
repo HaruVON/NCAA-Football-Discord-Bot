@@ -1,0 +1,14 @@
+services:
+  ncaa-discord-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+      - STAGE=prod
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+    # Uncomment and set the port if needed
+    # ports:
+    #   - "8080:8080"
