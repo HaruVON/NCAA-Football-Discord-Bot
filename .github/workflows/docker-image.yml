@@ -28,6 +28,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ncaa-football-discord-bot:latest, ${{ secrets.DOCKER_HUB_USERNAME }}/ncaa-football-discord-bot:${{ $(date +%s) }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ncaa-football-discord-bot:latest, ${{ secrets.DOCKER_HUB_USERNAME }}/ncaa-football-discord-bot:$(date +%s)
           build-args: |
             STAGE=prod
