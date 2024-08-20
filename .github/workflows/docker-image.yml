@@ -23,9 +23,9 @@ jobs:
         run: echo "DATE_TAG=$(date +'%Y%m%d')" >> $GITHUB_ENV
         
       # Ensure the repository name is lowercase
-      - name: Ensure lowercase repository name
-        id: repo_name
-        run: echo "REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+      #- name: Ensure lowercase repository name
+      #  id: repo_name
+      #  run: echo "REPO_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -34,12 +34,12 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       # Log in to GitHub Container Registry (GHCR)
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Log in to GitHub Container Registry
+      #  uses: docker/login-action@v3
+      #  with:
+      #    registry: ghcr.io
+      #    username: ${{ github.actor }}
+      #    password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
@@ -48,11 +48,11 @@ jobs:
           push: true
           tags: |
             ${{ secrets.DOCKER_HUB_USERNAME }}/ncaa-football-discord-bot:latest,
-            ${{ secrets.DOCKER_HUB_USERNAME }}/ncaa-football-discord-bot:${{ env.DATE_TAG }},
-            ghcr.io/haruvon/ncaa-football-discord-bot:latest,
-            ghcr.io/haruvon/ncaa-football-discord-bot:${{ env.DATE_TAG }}
+            ${{ secrets.DOCKER_HUB_USERNAME }}/ncaa-football-discord-bot:${{ env.DATE_TAG }}
           build-args: |
             STAGE=prod
 
+        # ghcr.io/haruvon/ncaa-football-discord-bot:latest,
+        # ghcr.io/haruvon/ncaa-football-discord-bot:${{ env.DATE_TAG }}
         #ghcr.io/${{ env.REPO_NAME }}:latest,
         #ghcr.io/${{ env.REPO_NAME }}:${{ env.DATE_TAG }}
