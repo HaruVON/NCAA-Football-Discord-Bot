@@ -1,0 +1,55 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore virtual environment directories
+.venv/
+venv/
+ENV/
+env/
+
+# Ignore environment files
+.env
+
+# Poetry
+# Track poetry.lock
+*.pydist-info/
+*.dist-info/
+__pycache__/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Logs
+*.log
+*.log.*
+
+# Test results
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Pytest
+.cache
+pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Mypy
+.mypy_cache/
+
+# Sphinx documentation
+docs/_build/
+
+# Build
+build/
+dist/
+*.egg-info/

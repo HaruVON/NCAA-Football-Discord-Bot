@@ -1,0 +1,35 @@
+# Python cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Poetry cache
+.poetry/
+
+# Virtual environment
+venv/
+.env/
+
+# Docker files
+Dockerfile
+docker-compose.yml
+
+# Git files
+.git/
+.gitignore
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Miscellaneous
+*.log
+*.md
+*.rst
+
